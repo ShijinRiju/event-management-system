@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block header %}
+
+<div class="newsletter-subscribe">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <header class="entry-header">
+                    <h2 class="entry-title">REGISTER</h2>
+                    <!-- <p>Join our database NOW!</p> -->
+                </header>
+
+                <div class="newsletter-form">
+                    <form class="flex flex-wrap justify-content-center align-items-center" method="post">
+                        {% csrf_token %}
+                        <div class="col-md-12 col-lg-6">
+                            <input type="text" name="name" placeholder="Name">
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="email" name="email" placeholder="E-mail">
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="text" name="phone" maxlength="10" placeholder="Phone number">
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <select name="country" id="country">
+                                {% for country in countries %}
+                                <option value="{{country}}">{{country}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-zA-Z])(?=.*\W).{8,}" title="Password must contain at least one number, one letter, one special character, and be at least 8 characters long" placeholder="Create a password">
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="password" name="confirm" placeholder="Confirm your password">
+                        </div>
+
+                        <div class="col-md-12 col-lg">
+                            <input class="btn gradient-bg" type="submit" value="Register">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

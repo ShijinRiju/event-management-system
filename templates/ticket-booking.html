@@ -1,0 +1,59 @@
+{% extends 'userBase.html' %}
+{% block header %}
+<div class="newsletter-subscribe">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <header class="entry-header">
+                    <h2 class="entry-title">BOOK TICKETS</h2>
+                    <!-- <p>Join our database NOW!</p> -->
+                </header>
+
+                <div class="newsletter-form">
+                    <form class="flex flex-wrap justify-content-center align-items-center" method="post">
+                        {% csrf_token %}
+                        <div class="col-md-12 col-lg-6">
+                            <input type="text" value="{{event.company}}" name="company" placeholder="Company" disabled>
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="text" name="event" value="{{event.event}}" placeholder="Event" disabled>
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="email" name="email" value="{{user.email}}" placeholder="Enter your email"
+                                disabled>
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="text" name="phone" value="{{user.phone}}"
+                                placeholder="Enter your Phone number" minlength="10" maxlength="10" disabled>
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="text" value="{{event.country}}" name="country" disabled>
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="text" value="{{event.date}}" name="date" disabled>
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="text" name="persons" placeholder="Enter the number of persons">
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="text" name="credit" placeholder="Enter your Credit or Debit card Number"
+                                maxlength="16">
+                        </div>
+
+                        <div class="col-md-12 col-lg">
+                            <input class="btn gradient-bg" type="submit" value="Book">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

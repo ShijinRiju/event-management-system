@@ -1,0 +1,26 @@
+{% extends 'companyBase.html' %}
+{% block header %}
+<div class="newsletter-subscribe">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for i in data %}
+            <div class=" col-4">
+                <div class="card">
+                    <img src="/static/posters/{{i.poster}}" class="card-img-top fixed-width fixed-height"
+                        alt="{{i.company}}" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.company}}</h5>
+                        <p class="card-text">{{i.country}}</p>
+                        <p class="card-text">{{i.date}}</p>
+                        <p class="card-text">${{i.price}}</p>
+                        <a class="btn btn-primary" href="/event_update?id={{i.id}}">Edit</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

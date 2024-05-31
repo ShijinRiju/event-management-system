@@ -1,0 +1,26 @@
+{% extends 'userBase.html' %}
+{% block header %}
+<div class="newsletter-subscribe">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for i in bookings %}
+            <div class=" col-4 mb-2">
+                <div class="card">
+                    <img src="/static/posters/{{i.event_id.poster}}" class="card-img-top fixed-width fixed-height"
+                        alt="{{i.event_id.company}}" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.event_id.company}}</h5>
+                        <p class="card-text">{{i.event_id.country}}</p>
+                        <p class="card-text">{{i.event_id.date}}</p>
+                        <p class="card-text">${{i.total_amount}}</p>
+                        <!-- <a class="btn btn-primary" href="/tickets?id={{i.id}}"> Buy Tickets</a> -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

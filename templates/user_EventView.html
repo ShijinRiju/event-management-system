@@ -1,0 +1,26 @@
+{% extends 'userBase.html' %}
+{% block header %}
+<div class="newsletter-subscribe">
+    <div class="container">
+        <div class="row">
+            {% for i in data %}
+            <div class="col-lg-4 mb-2">
+                <div class="card">
+                    <img src="/static/posters/{{i.poster}}" class="card-img-top fixed-width fixed-height"
+                        alt="{{i.company}}" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.company}}</h5>
+                        <p class="card-text">{{i.country}}</p>
+                        <p class="card-text">{{i.date}}</p>
+                        <p class="card-text">${{i.price}}</p>
+                        <a class="btn btn-primary" href="/tickets?id={{i.id}}"> Buy Tickets</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

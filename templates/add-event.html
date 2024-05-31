@@ -1,0 +1,63 @@
+{% extends 'companyBase.html' %}
+{% block header %}
+
+<div class="newsletter-subscribe">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <header class="entry-header">
+                    <h2 class="entry-title">ADD EVENT</h2>
+                    <!-- <p>Join our database NOW!</p> -->
+                </header>
+
+                <div class="newsletter-form">
+                    <form class="flex flex-wrap justify-content-center align-items-center" method="post"
+                        enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="col-md-12 col-lg-6">
+                            <input type="text" name="company" placeholder="Company Name">
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="email" name="email" placeholder="E-mail">
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="text" name="phone" placeholder="Phone number" maxlength="10">
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="text" name="event" placeholder="Event Name">
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="date" name="date" title="Event Date">
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="text" name="price" placeholder="Price">
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <select name="country" id="country">
+                                {% for country in countries %}
+                                <option value="{{country}}">{{country}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="col-md-12 col-lg-6">
+                            <input type="file" name="poster" title="Add poster">
+                        </div>
+
+                        <div class="col-md-12 col-lg">
+                            <input class="btn gradient-bg" type="submit" value="Add">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
